@@ -1,0 +1,11 @@
+.git
+.gcloud
+.gemini
+.env
+.env.*
+node_modules
+extension
+[External]*
+*.mp4
+*.mov
+*.webm

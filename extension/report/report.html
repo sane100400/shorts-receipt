@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>오늘의 쇼츠 영수증</title>
+    <meta name="description" content="오늘 본 YouTube Shorts의 시청 시간과 취향을 한 장의 영수증으로 정리합니다.">
+    <link rel="stylesheet" href="../shared/theme.css">
+    <link rel="stylesheet" href="report.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">결과로 건너뛰기</a>
+    <header class="site-header">
+      <div class="brand" aria-label="쇼츠 영수증">
+        <img class="brand-mark" src="../assets/scroll-receipt-mark.svg" alt="">
+        <span>쇼츠 영수증</span>
+      </div>
+    </header>
+
+    <main id="main" class="page-shell">
+      <section id="loading-state" class="state-card" aria-live="polite">
+        <p class="eyebrow">오늘의 쇼츠 영수증</p>
+        <h1>오늘 기록을 꺼내고 있어요.</h1>
+      </section>
+
+      <section id="empty-state" class="state-card is-hidden" aria-labelledby="empty-title">
+        <p class="eyebrow">아직 정산 전</p>
+        <h1 id="empty-title">쇼츠 4개를 본 뒤 다시 와 주세요.</h1>
+        <p id="empty-copy">오늘은 아직 정산할 만큼의 기록이 없어요.</p>
+      </section>
+
+      <section id="checkout-state" class="checkout-grid is-hidden" aria-labelledby="checkout-title">
+        <article class="checkout-copy">
+          <p class="eyebrow">오늘 기록 정산하기</p>
+          <h1 id="checkout-title">오늘 몇 개 봤는지,<br>영수증으로 뽑아 볼까요?</h1>
+          <p class="lede">대표 쇼츠 몇 개만 Gemini로 보냅니다. 나머지는 브라우저 밖으로 나가지 않아요.</p>
+          <dl id="checkout-stats" class="checkout-stats"></dl>
+          <button id="start-analysis" class="primary-button" type="button">쇼츠 정산하기</button>
+          <p id="checkout-note" class="privacy-note"></p>
+        </article>
+        <aside class="candidate-list" aria-labelledby="candidate-title">
+          <h2 id="candidate-title">분석할 쇼츠</h2>
+          <ol id="candidate-items"></ol>
+        </aside>
+      </section>
+
+      <section id="analysis-state" class="state-card is-hidden" aria-live="polite">
+        <h1>영수증 뽑는 중</h1>
+        <div class="scanline" aria-hidden="true"></div>
+        <p>대표 쇼츠를 읽고 있어요.</p>
+      </section>
+
+      <section id="receipt-state" class="receipt-layout is-hidden" aria-labelledby="receipt-title">
+        <article class="detail-receipt">
+          <header class="receipt-header">
+            <div>
+              <p class="eyebrow">오늘의 쇼츠 영수증</p>
+              <p id="receipt-date" class="receipt-date"></p>
+            </div>
+          </header>
+
+          <div class="title-block">
+            <p>오늘의 칭호</p>
+            <h1 id="receipt-title"></h1>
+          </div>
+
+          <section class="metric-ledger" aria-label="오늘의 쇼츠 기록">
+            <div class="mega-metric">
+              <strong id="receipt-view-count"></strong>
+              <span>오늘 본 쇼츠</span>
+            </div>
+            <div class="ledger-row">
+              <span>총 활성 시청</span><strong id="receipt-active-watch"></strong>
+            </div>
+            <div class="ledger-row">
+              <span>최장 연속 시청</span><strong id="receipt-longest-session"></strong>
+            </div>
+            <div class="ledger-row">
+              <span>1초 컷</span><strong id="receipt-fast-skip"></strong>
+            </div>
+            <div class="ledger-row">
+              <span>끝까지 본 쇼츠</span><strong id="receipt-completion"></strong>
+            </div>
+            <div class="ledger-row">
+              <span>다시 본 횟수</span><strong id="receipt-replay"></strong>
+            </div>
+          </section>
+
+          <section id="taste-section" class="taste-section is-hidden" aria-labelledby="taste-title">
+            <h2 id="taste-title">가장 오래 본 건 <span id="top-genre"></span></h2>
+            <div id="genre-bars" class="genre-ranks"></div>
+          </section>
+
+          <section id="feature-section" class="feature-section is-hidden" aria-labelledby="feature-title">
+            <h2 id="feature-title">오늘 많이 본 쇼츠의 공통점</h2>
+            <ul id="feature-list" class="feature-list"></ul>
+          </section>
+
+          <section class="fact-block" aria-labelledby="fact-title">
+            <p id="fact-title" class="section-label">실제 시청 기록</p>
+            <p id="fact-sentence"></p>
+            <div class="punchline-container">
+              <blockquote id="punchline"></blockquote>
+              <button id="regenerate-punchline" class="regenerate-button" type="button" title="AI 한 줄 평 다시 쓰기">
+                <span class="regenerate-icon" aria-hidden="true">🔄</span> AI 한 줄 평 다시 쓰기
+              </button>
+            </div>
+          </section>
+
+          <section class="evidence-section" aria-labelledby="evidence-title">
+            <h2 id="evidence-title">오래 본 쇼츠 3개</h2>
+            <ol id="evidence-list" class="evidence-list"></ol>
+          </section>
+
+          <footer class="receipt-footer">
+            <div class="receipt-actions">
+              <button id="retry-analysis" class="secondary-button" type="button">다시 정산</button>
+              <button id="delete-day" class="text-button danger-button" type="button">오늘 기록 초기화</button>
+            </div>
+          </footer>
+        </article>
+
+        <aside class="share-rail" aria-labelledby="share-title">
+          <h2 id="share-title" class="share-heading">공유하기</h2>
+          <div class="share-actions">
+            <button id="export-png" class="share-action share-action-save" type="button">이미지 저장</button>
+            <button id="friend-share" class="share-action share-action-friend" type="button">친구에게 공유</button>
+          </div>
+          <p id="share-feedback" class="share-feedback" aria-live="polite"></p>
+          <div id="share-card" class="share-card" aria-label="공유 카드 미리보기"></div>
+        </aside>
+      </section>
+    </main>
+
+    <script src="../shared/metrics.js"></script>
+    <script src="../config.js"></script>
+    <script src="report.js"></script>
+  </body>
+</html>

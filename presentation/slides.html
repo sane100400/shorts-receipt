@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>쇼츠 영수증 — 3분 발표자료</title>
+<style>
+  @font-face {
+    font-family: "Pretendard Variable";
+    src: url("assets/fonts/PretendardVariable.woff2") format("woff2-variations");
+    font-weight: 45 920;
+    font-display: block;
+  }
+
+  :root {
+    --blue: #1A73E8;
+    --blue-deep: #174EA6;
+    --ink: #1A1C1E;
+    --gray: #5F6368;
+    --hairline: #DDDFE2;
+    --paper: #FCFCFB;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page { size: 1280px 720px; margin: 0; }
+
+  html, body { background: #E4E4E4; }
+  body {
+    font-family: "Pretendard Variable", Pretendard, "Noto Sans CJK KR", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-synthesis: none;
+  }
+
+  .slide {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    margin: 0 auto;
+    overflow: hidden;
+    background: var(--paper);
+    color: var(--ink);
+    page-break-after: always;
+    break-after: page;
+    word-break: keep-all;
+  }
+  @media screen { .slide { margin: 24px auto; box-shadow: 0 2px 16px rgba(0,0,0,.14); } }
+
+  /* ── 공통 ─────────────────────────────── */
+  .meta {
+    position: absolute; top: 42px; left: 96px; right: 96px;
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 14px; border-bottom: 1px solid var(--hairline);
+    font-size: 12px; font-weight: 600; letter-spacing: .18em; color: var(--gray);
+  }
+  .meta .no { font-variant-numeric: tabular-nums; }
+
+  .body { position: absolute; top: 128px; left: 96px; right: 96px; bottom: 56px; }
+
+  h1 {
+    font-size: 54px; font-weight: 800; letter-spacing: -.035em; line-height: 1.24;
+  }
+  .accent { color: var(--blue); }
+  .num { font-variant-numeric: tabular-nums; }
+
+  /* ── 1. 타이틀 ───────────────────────── */
+  .s1 .body { display: flex; align-items: center; gap: 88px; }
+  .s1 .left { flex: 1; }
+  .s1 .track {
+    font-size: 14px; font-weight: 700; letter-spacing: .12em; color: var(--blue);
+    margin-bottom: 34px;
+  }
+  .s1 h1 { font-size: 108px; font-weight: 890; letter-spacing: -.045em; line-height: 1.05; margin-bottom: 18px; }
+  .s1 .en { font-size: 20px; font-weight: 600; letter-spacing: .3em; color: var(--gray); margin-bottom: 48px; }
+  .s1 .tagline { font-size: 27px; font-weight: 750; line-height: 1.45; margin-bottom: 16px; }
+  .s1 .desc { font-size: 17.5px; font-weight: 450; color: var(--gray); line-height: 1.72; max-width: 540px; }
+  .shot { flex-shrink: 0; text-align: center; }
+  .shot img {
+    display: block; border: 1px solid var(--hairline); border-radius: 10px;
+    box-shadow: 0 24px 48px -18px rgba(26,28,30,.25);
+  }
+  .shot figcaption { margin-top: 16px; font-size: 12.5px; font-weight: 550; letter-spacing: .06em; color: var(--gray); }
+
+  /* ── 2. 문제 ───────────────────────── */
+  .rows { margin-top: 60px; border-top: 1px solid var(--ink); }
+  .row {
+    display: flex; align-items: baseline; gap: 40px;
+    padding: 24px 4px; border-bottom: 1px solid var(--hairline);
+  }
+  .row .r-name { width: 220px; flex-shrink: 0; font-size: 20px; font-weight: 750; }
+  .row .r-desc { flex: 1; font-size: 16.5px; font-weight: 450; color: var(--gray); line-height: 1.6; }
+  .row .r-tag { flex-shrink: 0; font-size: 16px; font-weight: 750; color: var(--blue); }
+  .pull {
+    margin-top: 46px; font-size: 24px; font-weight: 700; line-height: 1.6; max-width: 1010px;
+  }
+  .pull small { display: block; margin-top: 14px; font-size: 15px; font-weight: 500; color: var(--gray); line-height: 1.6; }
+
+  /* ── 3. 솔루션 (영수증 합계 모티프) ───── */
+  .s3 .body { display: flex; gap: 84px; }
+  .s3 .left { flex: 1; }
+  .s3 h1 { font-size: 46px; }
+  .bill { margin-top: 40px; max-width: 560px; }
+  .bill .b-line {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 15px 2px;
+  }
+  .bill .b-line .b-op { color: var(--blue); font-weight: 800; margin-right: 12px; }
+  .bill .b-line b { font-size: 20px; font-weight: 750; }
+  .bill .b-line span { font-size: 15px; font-weight: 500; color: var(--gray); }
+  .bill .b-total {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-top: 6px; padding: 20px 2px 0;
+    border-top: 2px dashed #C6C9CD;
+  }
+  .bill .b-total b { font-size: 25px; font-weight: 830; color: var(--blue); }
+  .bill .b-total span { font-size: 15px; font-weight: 550; color: var(--blue-deep); }
+  .facts { margin-top: 42px; border-top: 1px solid var(--hairline); max-width: 560px; }
+  .facts li {
+    list-style: none; padding: 13px 2px; border-bottom: 1px solid var(--hairline);
+    font-size: 16px; font-weight: 450; color: var(--gray); line-height: 1.55;
+  }
+  .facts b { font-weight: 750; color: var(--ink); }
+
+  /* ── 4. Gemini ───────────────────────── */
+  .quad { margin-top: 56px; display: grid; grid-template-columns: 1fr 1fr; }
+  .quad .q {
+    padding: 34px 44px 34px 0;
+  }
+  .quad .q:nth-child(odd) { border-right: 1px solid var(--hairline); }
+  .quad .q:nth-child(even) { padding-left: 44px; padding-right: 0; }
+  .quad .q:nth-child(-n+2) { border-bottom: 1px solid var(--hairline); }
+  .quad .q-idx { font-size: 13px; font-weight: 700; letter-spacing: .16em; color: var(--blue); margin-bottom: 12px; }
+  .quad h3 { font-size: 22.5px; font-weight: 780; letter-spacing: -.02em; margin-bottom: 10px; }
+  .quad p { font-size: 15.5px; font-weight: 450; color: var(--gray); line-height: 1.66; }
+  .quad p b { font-weight: 700; color: var(--ink); }
+
+  /* ── 5. 아키텍처 ─────────────────────── */
+  .flow {
+    margin-top: 64px; display: flex; align-items: flex-start; justify-content: space-between;
+  }
+  .flow .f-step { max-width: 172px; }
+  .flow .f-step h3 { font-size: 17.5px; font-weight: 780; letter-spacing: -.01em; margin-bottom: 8px; }
+  .flow .f-step p { font-size: 13px; font-weight: 480; color: var(--gray); line-height: 1.58; }
+  .flow .f-arrow { padding: 2px 12px 0; text-align: center; flex-shrink: 0; }
+  .flow .f-arrow em { font-style: normal; font-size: 19px; font-weight: 700; color: var(--blue); }
+  .flow .f-arrow small { display: block; margin-top: 4px; font-size: 10.5px; font-weight: 650; color: var(--blue-deep); line-height: 1.4; }
+  .privacy { margin-top: 58px; }
+  .privacy h2 {
+    font-size: 15px; font-weight: 750; letter-spacing: .02em; color: var(--ink);
+    padding-bottom: 14px; border-bottom: 1px solid var(--ink);
+  }
+  .privacy h2 span { color: var(--gray); font-weight: 500; }
+  .privacy li {
+    list-style: none; display: flex; gap: 20px; align-items: baseline;
+    padding: 14px 2px; border-bottom: 1px solid var(--hairline);
+    font-size: 16.5px; font-weight: 500;
+  }
+  .privacy li i { font-style: normal; font-size: 13px; font-weight: 700; color: var(--blue); flex-shrink: 0; }
+
+  /* ── 6. 데모 ─────────────────────────── */
+  .scenes { margin-top: 64px; display: grid; grid-template-columns: 1fr 1fr 1fr; }
+  .scenes .sc { padding: 6px 40px 30px 0; }
+  .scenes .sc + .sc { border-left: 1px solid var(--hairline); padding-left: 40px; }
+  .scenes .sc-n { font-size: 60px; font-weight: 250; color: var(--blue); line-height: 1; margin-bottom: 20px; font-variant-numeric: tabular-nums; }
+  .scenes h3 { font-size: 21px; font-weight: 780; letter-spacing: -.015em; margin-bottom: 10px; }
+  .scenes p { font-size: 15.5px; font-weight: 450; color: var(--gray); line-height: 1.66; }
+  .scenes p b { font-weight: 720; color: var(--ink); }
+  .criteria { margin-top: 34px; border-top: 1px solid var(--ink); display: grid; grid-template-columns: 1fr 1fr 1fr; }
+  .criteria .c { padding: 18px 40px 0 0; }
+  .criteria .c + .c { padding-left: 40px; }
+  .criteria .c b { display: block; font-size: 12.5px; font-weight: 750; letter-spacing: .14em; color: var(--blue); margin-bottom: 7px; }
+  .criteria .c p { font-size: 14px; font-weight: 500; color: var(--gray); line-height: 1.55; }
+
+  /* ── 7. 클로징 ───────────────────────── */
+  .s7 .body { display: flex; flex-direction: column; justify-content: center; }
+  .s7 blockquote { font-size: 45px; font-weight: 820; letter-spacing: -.035em; line-height: 1.5; max-width: 1060px; }
+  .s7 .sum {
+    margin-top: 56px; max-width: 1060px;
+    padding-top: 30px; border-top: 2px dashed #C6C9CD;
+    display: flex; justify-content: space-between; align-items: baseline;
+  }
+  .s7 .sum b { font-size: 31px; font-weight: 830; color: var(--blue); letter-spacing: -.02em; }
+  .s7 .sum span { font-size: 15px; font-weight: 550; color: var(--gray); }
+</style>
+</head>
+<body>
+
+<!-- ═══ 1 · 타이틀 ═══ -->
+<section class="slide s1">
+  <div class="meta"><span>GOOGLE CLOUD STUDY JAM HACKATHON</span><span class="no">01 / 07</span></div>
+  <div class="body">
+    <div class="left">
+      <div class="track">TRACK — GEMINI IN ENTERTAINMENT</div>
+      <h1>쇼츠 영수증</h1>
+      <div class="en">SCROLL RECEIPT</div>
+      <p class="tagline">"오늘의 스크롤, <span class="accent">영수증</span> 나왔습니다."</p>
+      <p class="desc">오늘 본 YouTube Shorts를 자동 기록하고 Gemini가 장르와 편집 문법을 분석해 친구에게 자랑하는 <b>일일 쇼츠 전적표</b>로 만드는 Chrome 확장 프로그램</p>
+    </div>
+    <figure class="shot">
+      <img src="assets/share-card.png" width="272" alt="쇼츠 영수증 9:16 공유 카드 — 실제 제품 화면">
+      <figcaption>실제 제품 화면 — 9:16 공유 카드</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ═══ 2 · 문제 ═══ -->
+<section class="slide">
+  <div class="meta"><span>SCROLL RECEIPT — 쇼츠 영수증</span><span class="no">02 / 07</span></div>
+  <div class="body">
+    <h1>쇼츠 시청량, <span class="accent">보여줄 방법이 없다</span></h1>
+    <div class="rows">
+      <div class="row">
+        <div class="r-name">스크린 타임 캡처</div>
+        <div class="r-desc">얼마나 오래 열었는지만 보여준다</div>
+        <div class="r-tag">시간만</div>
+      </div>
+      <div class="row">
+        <div class="r-name">YouTube 시청 기록</div>
+        <div class="r-desc">무엇을 열었는지만 남는다</div>
+        <div class="r-tag">목록만</div>
+      </div>
+      <div class="row">
+        <div class="r-name">연말 Recap</div>
+        <div class="r-desc">1년에 한 번, 오늘의 기록이 아니다</div>
+        <div class="r-tag">연 1회</div>
+      </div>
+    </div>
+    <p class="pull">"나 어제 쇼츠 200개 봄" — 시청량은 이미 친구끼리의 자랑이자 경쟁 소재.
+      <small>음악에는 Spotify Wrapped가 있는데, 쇼츠에는 아직 없다.</small>
+    </p>
+  </div>
+</section>
+
+<!-- ═══ 3 · 솔루션 ═══ -->
+<section class="slide s3">
+  <div class="meta"><span>SCROLL RECEIPT — 쇼츠 영수증</span><span class="no">03 / 07</span></div>
+  <div class="body">
+    <div class="left">
+      <h1>하루를 <span class="accent">한 장의 전적표</span>로</h1>
+      <div class="bill">
+        <div class="b-line"><b>실제 시청 행동</b><span>개수 · 활성 시간 · 스킵 · 완주</span></div>
+        <div class="b-line"><b><span class="b-op">+</span>Gemini 콘텐츠 이해</b><span>장르 · 훅 · 편집 문법</span></div>
+        <div class="b-line"><b><span class="b-op">+</span>공유 카드</b><span>숫자가 크게 보이는 9:16 PNG</span></div>
+        <div class="b-total"><b>= 오늘의 쇼츠 영수증</b><span>5초 안에 읽고 바로 보내는</span></div>
+      </div>
+      <ul class="facts">
+        <li><b class="num">50개 · 46분 18초</b> — 백그라운드·일시정지를 제외한 진짜 활성 시청 시간</li>
+        <li><b class="num">1초 컷 31회 · 완주 12개</b> — 넘긴 방식까지 기록되는 시청 습관</li>
+        <li><b>썰 42% · "0.8초 감별사"</b> — Gemini 분석과 게임 전적표식 칭호</li>
+      </ul>
+    </div>
+    <figure class="shot" style="align-self:center">
+      <img src="assets/report-top.png" height="452" alt="쇼츠 영수증 일일 리포트 — 실제 제품 화면">
+      <figcaption>실제 리포트 화면</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ═══ 4 · Gemini ═══ -->
+<section class="slide">
+  <div class="meta"><span>SCROLL RECEIPT — 쇼츠 영수증</span><span class="no">04 / 07</span></div>
+  <div class="body">
+    <h1>Gemini를 <span class="accent">어떻게 썼나</span></h1>
+    <div class="quad">
+      <div class="q">
+        <div class="q-idx">01 — URL CONTEXT</div>
+        <h3>멀티모달 콘텐츠 분석</h3>
+        <p>가장 오래 본 대표 쇼츠 <b>5개 + 빠른 스킵 대조 1개</b>의 공개 URL을 Gemini에 전달해 주 장르, 첫 훅 유형, payoff 시점, TTS·빠른 컷 같은 <b>편집 문법</b>을 분석합니다.</p>
+      </div>
+      <div class="q">
+        <div class="q-idx">02 — STRUCTURED OUTPUT</div>
+        <h3>구조화 출력 강제</h3>
+        <p>응답 형식을 고정 <b>JSON Schema</b>로 못 박고 판정마다 <b>타임스탬프 근거와 confidence</b>를 요구합니다. 스키마 검증을 통과한 결과만 사용합니다.</p>
+      </div>
+      <div class="q">
+        <div class="q-idx">03 — ROLE SEPARATION</div>
+        <h3>엄격한 역할 분리</h3>
+        <p>숫자·비율·칭호·배지는 전부 <b>결정적 코드</b>가 계산합니다. Gemini의 몫은 검증된 사실로 쓰는 <b>45자 펀치라인</b>뿐입니다. AI가 숫자를 지어낼 수 없는 구조입니다.</p>
+      </div>
+      <div class="q">
+        <div class="q-idx">04 — GRACEFUL DEGRADATION</div>
+        <h3>단계적 강등</h3>
+        <p>URL context를 못 쓰면 <b>메타데이터 분석</b>으로, 전부 실패하면 <b>행동 전용 영수증</b>으로 내려갑니다. 어떤 상황에서도 데모가 멈추지 않습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 5 · 아키텍처 ═══ -->
+<section class="slide">
+  <div class="meta"><span>SCROLL RECEIPT — 쇼츠 영수증</span><span class="no">05 / 07</span></div>
+  <div class="body">
+    <h1>정산할 때만, <span class="accent">대표 6개만</span></h1>
+    <div class="flow">
+      <div class="f-step"><h3>YouTube Shorts</h3><p>PC Chrome에서 평소처럼 시청</p></div>
+      <div class="f-arrow"><em>→</em></div>
+      <div class="f-step"><h3>Chrome Extension</h3><p>Manifest V3 · SPA 추적<br>500ms tick 활성 시청 측정</p></div>
+      <div class="f-arrow"><em>→</em></div>
+      <div class="f-step"><h3>chrome.storage.local</h3><p>모든 원시 기록은<br>브라우저 로컬에만 저장</p></div>
+      <div class="f-arrow"><em>→</em><small>정산 클릭 시<br>대표 6개만</small></div>
+      <div class="f-step"><h3>Cloud Run</h3><p>Node.js 22<br>asia-northeast3</p></div>
+      <div class="f-arrow"><em>→</em></div>
+      <div class="f-step"><h3>Gemini 3.5 Flash</h3><p>URL context + JSON<br>영상별 실패 격리 · 40s deadline</p></div>
+    </div>
+    <div class="privacy">
+      <h2>프라이버시 원칙 <span>— 자랑을 위한 전적표지, 진단서가 아닙니다</span></h2>
+      <ul>
+        <li><i>수집 안 함</i>로그인 · 쿠키 · 댓글 · 검색 기록 · 다른 웹사이트</li>
+        <li><i>로컬 유지</i>정산 때도 대표 6개 외 수백 개 영상 기록은 브라우저를 떠나지 않음</li>
+        <li><i>표현 금지</i>중독 · 치료 같은 훈계 표현, 민감한 개인 특성 추론</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 6 · 데모 ═══ -->
+<section class="slide">
+  <div class="meta"><span>SCROLL RECEIPT — 쇼츠 영수증</span><span class="no">06 / 07</span></div>
+  <div class="body">
+    <h1>라이브 데모 <span class="accent">3장면</span></h1>
+    <div class="scenes">
+      <div class="sc">
+        <div class="sc-n">1</div>
+        <h3>실시간 자동 기록</h3>
+        <p>Shorts를 실제로 넘기면 팝업 숫자가 <b>바로바로 올라갑니다.</b> 설치 후 아무 설정도, 버튼도 필요 없는 완전 자동 추적.</p>
+      </div>
+      <div class="sc">
+        <div class="sc-n">2</div>
+        <h3>45초 안에 Gemini 정산</h3>
+        <p>"오늘 쇼츠 영수증 보기"를 누르면 <b>45초 안에</b> Gemini 장르·문법 분석이 결합된 일일 영수증이 생성됩니다.</p>
+      </div>
+      <div class="sc">
+        <div class="sc-n">3</div>
+        <h3>9:16 PNG 저장 · 공유</h3>
+        <p>영수증 질감의 <b class="num">1080×1920</b> 공유 카드를 PNG로 저장해 바로 친구에게 보냅니다.</p>
+      </div>
+    </div>
+    <div class="criteria">
+      <div class="c"><b>TECHNICAL DEMO</b><p>SPA 추적 · 활성 시청 측정 · Gemini 구조화 출력이 눈앞에서 동작</p></div>
+      <div class="c"><b>IMPACT</b><p>누구나 친구에게 보내고 싶은 한 장짜리 일일 전적표</p></div>
+      <div class="c"><b>CREATIVITY</b><p>스크린 타임이 장르·훅·쇼츠 문법이 담긴 자랑거리로</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 7 · 클로징 ═══ -->
+<section class="slide s7">
+  <div class="meta"><span>SCROLL RECEIPT — 쇼츠 영수증</span><span class="no">07 / 07</span></div>
+  <div class="body">
+    <blockquote>
+      YouTube는 <span class="accent">무엇을 추천했는지</span> 알지만,<br>
+      쇼츠 영수증은 오늘 내가 <span class="accent">무엇에 시간을 썼는지</span>를<br>
+      친구에게 보여줍니다.
+    </blockquote>
+    <div class="sum">
+      <b>오늘 쇼츠 몇 개 봄?</b>
+      <span>감사합니다 — 쇼츠 영수증 · Scroll Receipt</span>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

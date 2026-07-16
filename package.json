@@ -1,0 +1,23 @@
+{
+  "name": "google-cloud-study-jam-hackathon",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "check": "bash scripts/validate-repo.sh",
+    "doctor": "bash scripts/check-env.sh",
+    "doctor:event": "bash scripts/check-env.sh --event-day",
+    "gcp:configure": "bash scripts/configure-event-account.sh",
+    "preflight:network": "bash scripts/check-network.sh",
+    "smoke:gemini": "node --env-file=.env scripts/gemini-smoke.mjs",
+    "start": "node server/index.mjs",
+    "api": "node server/index.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@google/genai": "2.11.0"
+  }
+}

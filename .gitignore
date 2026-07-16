@@ -1,0 +1,32 @@
+# Local secrets and Google credentials
+.env
+.env.*
+!.env.example
+.gcloud/
+.gemini/
+application_default_credentials.json
+service-account*.json
+*-credentials.json
+
+# JavaScript
+node_modules/
+dist/
+coverage/
+*.log
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+*:Zone.Identifier
+
+# Organizer reference documents are local-only, not public submission assets
+[[]External[]]*
+
+# Local writing and review artifacts
+_workspace/
+
+# Large demo recordings should be uploaded to Drive or YouTube
+*.mov
+*.mp4
+*.webm

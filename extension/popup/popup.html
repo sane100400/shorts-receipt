@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>쇼츠 영수증</title>
+    <meta name="description" content="오늘 본 YouTube Shorts를 한 장의 영수증으로 정리합니다.">
+    <link rel="stylesheet" href="../shared/theme.css">
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="popup-shell" aria-labelledby="popup-title">
+      <span class="paper-tape" aria-hidden="true"></span>
+      <section id="onboarding" class="onboarding is-hidden" aria-labelledby="popup-title">
+        <header class="intro-header">
+          <p class="eyebrow"><img class="popup-mark" src="../assets/scroll-receipt-mark.svg" alt="">쇼츠 영수증</p>
+          <h1 id="popup-title">오늘 넘긴 쇼츠,<br>몇 개였더라?</h1>
+          <p class="intro-copy">오늘 본 쇼츠의 개수, 머문 시간, 1초 컷을 셉니다.</p>
+        </header>
+
+        <dl class="privacy-ledger">
+          <div>
+            <dt>기록함</dt>
+            <dd>시청 시간 · 스킵 · 완주 · 반복 · 무음</dd>
+          </div>
+          <div>
+            <dt>기록 안 함</dt>
+            <dd>로그인 · 쿠키 · 댓글 · 검색 기록</dd>
+          </div>
+        </dl>
+
+        <p class="local-note">기록은 이 브라우저에만 남아요. 영수증을 만들 때만 대표 쇼츠를 분석합니다.</p>
+        <div class="control-dock">
+          <button id="start-recording" class="tracking-toggle" type="button">
+            <span class="control-glyph" aria-hidden="true"></span>
+            기록 허용하기
+          </button>
+          <p class="control-note">YouTube에 들어가면 오늘 기록을 시작할지 물어봐요.</p>
+        </div>
+      </section>
+
+      <section id="tracking-ui" class="tracking-ui is-hidden">
+        <header class="popup-header">
+          <div>
+            <p class="eyebrow"><img class="popup-mark" src="../assets/scroll-receipt-mark.svg" alt="">쇼츠 영수증</p>
+            <h1>오늘 몇 개 봤더라</h1>
+          </div>
+          <span id="recording-status" class="status-pill">기록 중</span>
+        </header>
+
+        <section class="hero-count" aria-label="오늘 본 쇼츠 수">
+          <div class="hero-value"><strong id="view-count">0</strong><span>개</span></div>
+          <p>오늘 실제로 넘겨 본 쇼츠</p>
+        </section>
+
+        <section class="quick-stats" aria-label="오늘의 시청 통계">
+          <div>
+            <span>총 활성 시청</span>
+            <strong id="active-watch">0분 00초</strong>
+          </div>
+          <div>
+            <span>1초 컷</span>
+            <strong id="fast-skip">0회</strong>
+          </div>
+          <div>
+            <span>최장 연속</span>
+            <strong id="longest-session">0초</strong>
+          </div>
+        </section>
+
+        <p id="hint" class="hint">쇼츠 4개를 보면 오늘의 영수증을 만들 수 있어요.</p>
+
+        <div class="control-dock">
+          <button id="toggle-pause" class="tracking-toggle" type="button">
+            <span class="control-glyph is-pause" aria-hidden="true"></span>
+            기록 일시정지
+          </button>
+          <div class="utility-actions">
+            <button id="open-report" class="utility-button report-button" type="button">쇼츠 정산하기 <span aria-hidden="true">→</span></button>
+            <button id="reset-today" class="utility-button reset-button" type="button">오늘 기록 초기화 <span aria-hidden="true">↺</span></button>
+            <button id="reconnect-tracker" class="utility-button reconnect-button" type="button">Shorts 탭 다시 연결</button>
+          </div>
+          <div class="data-controls" aria-label="기록 설정">
+            <label class="consent-setting">
+              <span>기록 동의</span>
+              <input id="consent-toggle" type="checkbox" role="switch" checked>
+              <span class="consent-switch" aria-hidden="true"></span>
+            </label>
+            <button id="delete-records" class="delete-records-button" type="button">전체 기록 삭제</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="../shared/metrics.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

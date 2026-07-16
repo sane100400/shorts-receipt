@@ -1,0 +1,52 @@
+@font-face {
+  font-family: "Moneygraphy";
+  src: url("../assets/fonts/Moneygraphy-Rounded.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  /* Crisp & Premium Google Design Palette */
+  --canvas-start: #F8F9FA; /* Google Gray 50 - clean & light neutral background */
+  --canvas-end: #F1F3F4; /* Google Gray 100 - clean and cohesive base */
+  --paper: #FFFFFF; /* Google White - bright, crisp cards */
+  --paper-deep: #F8F9FA; /* Google Gray 50 - depth layers */
+  
+  --ink: #202124; /* Google Black - optimal typography readability */
+  --muted: #5F6368; /* Google Gray 600 - subtext & secondary metrics */
+  
+  --rule: #DADCE0; /* Google Gray 300 - clean section lines */
+  --rule-strong: #BDC1C6; /* Google Gray 400 - high contrast card borders */
+  
+  /* Harmonious Google Brand Accent Colors */
+  --stamp: #1A73E8; /* Classic Google Blue - signature action accent */
+  --primary-hover: #174EA6; /* Google Blue Hover - dark deep accent on focus */
+  --stamp-soft: #E8F0FE; /* Google Blue Soft - light backdrop on hover & badges */
+  --tape: #E8F0FE; /* Google Blue Soft for receipt washi tape background */
+  --secondary: #188038; /* Google Green 700 - safe tracking statuses */
+  --accent: #F9AB00; /* Google Yellow 700 - alerts and stars */
+  
+  --font-sans: "Moneygraphy", "Google Sans", "Roboto", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: "Moneygraphy", "Google Sans", "Roboto", -apple-system, BlinkMacSystemFont, serif;
+  
+  /* Material Design 3 Radii */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+  
+  /* Material Elevation Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+  --shadow-md: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+  --shadow-lg: 0 4px 6px 0 rgba(60,64,67,0.3), 0 8px 24px 3px rgba(60,64,67,0.15);
+  
+  --spring: cubic-bezier(0.2, 0, 0, 1); /* Material emphasize easing */
+  --dur-fast: 0.2s;
+  
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-md: 16px;
+  --text-lg: clamp(22px, 2.4vw, 28px);
+  --text-xl: clamp(36px, 5.3vw, 56px);
+}
